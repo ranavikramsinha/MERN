@@ -5,18 +5,36 @@ import Button from './components/Button'
 import {DangerButton, SuccessButton} from './components/Buttons'
 import DynamicComponent from './components/DynamicComponent'
 import StudentList from './components/StudentList'
+import RandomNumber from './components/RandomNumber'
+import Title from './components/Title'
 
 function App() {
 
+
+  const students = ['Aryan', 'Rana', 'Rana', 'Parker', 'Sam', 'Andrew'];
+
+  const newStudents = ['Ram', 'Shayam', 'Mohan', 'Vishal', 'Sita'];
+
   return (
     <>
+      <Title titleText = "Hello World!" />
+      <Title titleText = "Aryan Sinha" />
+      <Title titleText = "Learning props" />
+
+
       <Heading></Heading>
       <Paragraph></Paragraph>
       <Button></Button>
       <SuccessButton></SuccessButton>
       <DangerButton></DangerButton>
+      <Title></Title>
       <DynamicComponent></DynamicComponent>
-      <StudentList></StudentList>
+      <StudentList students = {students}/>
+      <StudentList />
+      <StudentList students = {newStudents}/>
+      <RandomNumber></RandomNumber>
+      <RandomNumber></RandomNumber>
+      <RandomNumber></RandomNumber>
     </>
   )
 }

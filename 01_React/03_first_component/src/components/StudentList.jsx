@@ -1,13 +1,17 @@
 import React from "react";
 
-const StudentList = () => {
+const StudentList = (props) => {
 
-    const students = ['Aryan', 'Rana', 'Rana', 'Parker', 'Sam', 'Andrew'];
+    if(!props.students){
+        return (
+            <p>No students</p>
+        )
+    }
 
     return (
         <ol>
             {
-                students.map((student, index) => <li key={index}>{student}</li>)
+                props.students.map((student, index) => <li key={index}>{student}</li>)
             }
         </ol>
     )
