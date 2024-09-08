@@ -1,10 +1,19 @@
+*{
+  font-size: 1.1rem;
+}
+
 body{
   background-color: #222222;
   color: #ffffff;
 }
 
+.heading{
+  font-weight: 700;
+}
+
 .todoList-row{
   text-align: start;
+  margin-bottom: 10px;
 }
 
 .col-5{
@@ -20,8 +29,9 @@ h4{
   padding: 0;
 }
 
-button{
-  width: 70px;
+.button{
+  min-width: 100px;
+  border : 1px solid black
 }
 
 .col-2{

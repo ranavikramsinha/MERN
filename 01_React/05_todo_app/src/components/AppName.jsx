@@ -4,7 +4,7 @@ import './AppName.css';
 const AppName = () => {
 
     return (
-        <h1>Todo App</h1>
+        <h1 className='heading'>Todo App</h1>
     )
 }
 

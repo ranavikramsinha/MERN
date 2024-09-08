@@ -2,6 +2,10 @@ import Button from "./Button";
 
 const TodoItem = ({id, todoText, todoDate}) => {
 
+  const deleteHandler = () => {
+    console.log(`deleteHandler Clicked ${id} ${todoText}`);
+  }
+
     return (
       <div className="container">
         <div className="row todoList-row">
@@ -12,7 +16,7 @@ const TodoItem = ({id, todoText, todoDate}) => {
               <h4>{todoDate}</h4>
           </div>
           <div className="col-2">
-            <Button btnType="danger" btnText="Delete"/>
+            <Button btnType="danger" btnText="Delete" handler={deleteHandler}/>
           </div>
         </div>
       </div>

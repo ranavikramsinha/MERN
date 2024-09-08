@@ -1,9 +1,14 @@
 import Button from "./Button";
 
 const AddTodo = () => {
+
+  const addHandler = () => {
+    console.log(`addHandler Clicked`);
+  }
+
     return (
         <div className="container">
-        <div className="row">
+        <div className="row todoList-row">
           <div className="col-5">
             <input type="text" className="form-control" placeholder="Enter Todo Here"></input>
           </div>
@@ -11,7 +16,7 @@ const AddTodo = () => {
             <input type="date" className="form-control"></input>
           </div>
           <div className="col-2">
-            <Button btnType="success" btnText="Add"/>
+            <Button btnType="success" btnText="Add" handler={addHandler}/>
           </div>
         </div>
       </div>
