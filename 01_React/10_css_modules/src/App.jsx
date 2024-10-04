@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <h1 className={style.heading}>Hello World!</h1>
+      <h1 className={`${style.heading} ${style.paragraph}`}>Hello World!</h1>
     </>
   )
 }
