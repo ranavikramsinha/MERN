@@ -1,8 +1,15 @@
 const List = ({lists}) => {
 
+  if(!lists || lists.length === 0) {
+    return (
+      <h2>No Users are here.</h2>
+    )
+  }
+
   return (
     <>
-      <ol className="list-decimal list-inside">
+      {!lists || lists.length === 0 ? <h2>No Users are here.</h2> : <h2>List of Users are here.</h2>}
+      {lists && lists.length > 0 &&<ol className="list-decimal list-inside">
 
         {/* <li>Aryan</li>
         <li>Rana</li>
@@ -13,7 +20,7 @@ const List = ({lists}) => {
         {/* Using map (preferable) */}
         {lists.map((item) => (<li key={item}>{item}</li>))}
 
-      </ol>
+      </ol>}
     </>
   );
 };

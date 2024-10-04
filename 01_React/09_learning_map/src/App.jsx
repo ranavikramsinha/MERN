@@ -3,6 +3,8 @@ import List from "./components/list";
 function App() {
 
   const users = ["Aryan", "Rana", "Rudraksh", "Parker", "Sam", "Andrew"];
+  // const users = [];
+  // let users;
   
   return (
     <>

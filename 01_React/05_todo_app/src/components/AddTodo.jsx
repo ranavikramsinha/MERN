@@ -6,11 +6,15 @@ const AddTodo = () => {
     console.log(`addHandler Clicked`);
   }
 
+  const textChangeHandler = (event) => {
+    console.log(event.target.value, event);
+  }
+
     return (
         <div className="container">
         <div className="row todoList-row">
           <div className="col-5">
-            <input type="text" className="form-control" placeholder="Enter Todo Here"></input>
+            <input type="text" className="form-control" placeholder="Enter Todo Here" onChange={textChangeHandler}></input>
           </div>
           <div className="col-5">
             <input type="date" className="form-control"></input>
