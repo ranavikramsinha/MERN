@@ -9,7 +9,7 @@ const Skills = () => {
     return (
         <>
         <Section icon={<Code className="w-5" />} sectionTitle="Skills">
-            {skillTitles.map(title => <Pill key={title} title={title} />)}
+            <span className="flex flex-wrap gap-2">{skillTitles.map(title => <Pill key={title} title={title} />)}</span>
         </Section>
         </>
     )
