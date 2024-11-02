@@ -1,0 +1,43 @@
+*{
+  font-size: 1.1rem;
+}
+
+body{
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.heading{
+  font-weight: 700;
+}
+
+.todoList-row{
+  text-align: start;
+  margin-bottom: 10px;
+}
+
+.col-5{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* margin: 0;
+  padding: 0; */
+}
+
+h4{
+  margin: 0;
+  padding: 0;
+}
+
+.button{
+  min-width: 100px;
+  border : 1px solid black
+}
+
+.col-2{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
