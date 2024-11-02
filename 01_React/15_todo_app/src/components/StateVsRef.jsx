@@ -9,7 +9,8 @@ const StateVsRef = () => {
 
     const onStateClickHandler = () => {
         console.log("State Clicked");
-        setStateClick(stateClick + 1);
+        // setStateClick(stateClick + 1);
+        setStateClick(currentValue => currentValue + 1);
     }
     
     const onRefClickHandler = () => {
