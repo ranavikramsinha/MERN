@@ -10,8 +10,14 @@ const AddTodo = () => {
   const {addTodoItem} = useContext(TodoItemsContext);
 
   const addHandler = () => {
-    const todoText = todoTextInputRef.current.value;
+    const todoText = todoTextInputRef.current.value.trim();
     const todoData = todoDataInputRef.current.value;
+
+    if (!todoText || !todoData) {
+      alert("Both fields are required.");
+      return;
+    }
+
     addTodoItem(todoText, todoData);
 
     console.log(`Adding new item ${todoTextInputRef.current.value} (${todoDataInputRef.current.value})`);
