@@ -3,9 +3,9 @@ const TodoItemsReducer = (currentTodoItems, action) => {
     switch(action.type){
       case 'ADD_ITEM':{
         // const todoText = action.payload.todoText;
-        // const todoData = action.payload.todoData;
-        const { todoText, todoData } = action.payload;
-        return [...currentTodoItems, {id: Date.now(), todoText: todoText, todoDate: todoData}];
+        // const todoDate = action.payload.todoDate;
+        const { id, todoText, todoDate } = action.payload;
+        return [...currentTodoItems, {id: id, todoText: todoText, todoDate: todoDate}];
       }
       case 'DELETE_ITEM':{
         // const id = action.payload.id;

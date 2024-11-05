@@ -1,29 +1,48 @@
 // import TodoItemsContext from "../store/TodoItemsContext";
 import {TodoItemsContext} from "../store/TodoItemsContext";
+import { todoItemToClient } from "../utils/ModelUtil";
 import Button from "./Button";
 import { useRef , useContext  } from "react";
 
 const AddTodo = () => {
 
   const todoTextInputRef = useRef(null);
-  const todoDataInputRef = useRef(null);
+  const todoDateInputRef = useRef(null);
   const {addTodoItem} = useContext(TodoItemsContext);
 
   const addHandler = () => {
     const todoText = todoTextInputRef.current.value.trim();
-    const todoData = todoDataInputRef.current.value;
+    const todoDate = todoDateInputRef.current.value;
 
-    if (!todoText || !todoData) {
+    if (!todoText || !todoDate) {
       alert("Both fields are required.");
       return;
     }
 
-    addTodoItem(todoText, todoData);
+    const id = Date.now();
 
-    console.log(`Adding new item ${todoTextInputRef.current.value} (${todoDataInputRef.current.value})`);
+    fetch("http://localhost:3000/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+        task: todoText,
+        date: todoDate,
+      }),
+      }).then((response) => response.json())
+        .then(serverItem => {
+          const {id, todoText, todoDate} = todoItemToClient(serverItem);
+          addTodoItem(id, todoText, todoDate);
+      })
+
+    // addTodoItem(id, todoText, todoDate);
+
+    console.log(`Adding new item ${todoTextInputRef.current.value} (${todoDateInputRef.current.value})`);
 
     todoTextInputRef.current.value = "";
-    todoDataInputRef.current.value = "";
+    todoDateInputRef.current.value = "";
   };
 
   // const textChangeHandler = (event) => {
@@ -45,7 +64,7 @@ const AddTodo = () => {
           ></input>
         </div>
         <div className="col-5">
-          <input type="date" ref={todoDataInputRef} className="form-control"></input>
+          <input type="date" ref={todoDateInputRef} className="form-control"></input>
         </div>
         <div className="col-2">
           <Button btnType="success" btnText="Add" handler={addHandler} />

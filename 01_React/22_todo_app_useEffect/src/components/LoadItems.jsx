@@ -18,12 +18,13 @@ const LoadItems = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://dummyjson.com/todos")
+    fetch("http://localhost:3000/todos")
       .then((res) => res.json())
       .then((data) => {
-        const newItems = data.todos.map((item) => ({
+        const newItems = data.map((item) => ({
           id: item.id,
-          todoText: item.todo,
+          todoText: item.task,
+          todoDate: item.date,
         }));
         addAllTodoItems(newItems);
       })

@@ -32,10 +32,11 @@ export const TodoItemsProvider = ({ children }) => {
     const [todoItems, todoItemsDispatch] = useReducer(TodoItemsReducer, []);
     // console.log(todoItems);
   
-    const addTodoItem = (todoText, todoData) => {
+    const addTodoItem = (id,todoText, todoData) => {
       todoItemsDispatch({
         type: 'ADD_ITEM',
         payload: {
+          id: id,
           todoText: todoText,
           todoData: todoData,
         }

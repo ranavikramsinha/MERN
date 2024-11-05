@@ -7,9 +7,20 @@ const TodoItem = ({ id, todoText, todoDate }) => {
 
   const {deleteTodoItem} = useContext(TodoItemsContext);
 
-  const deleteHandler = (event) => {
-    console.log(event);
-    console.log(`Deleting item id and text: ${id} and ${todoText}`);
+  // const deleteHandler = (event) => {
+  //   console.log(event);
+  //   console.log(`Deleting item id and text: ${id} and ${todoText}`);
+  // }
+
+  const deleteHandler = () => {
+    console.log(`Deleting item id: ${id}`);
+
+    fetch(`http://localhost:3000/todos/${id}`, {
+      method: 'DELETE',
+    })
+    .then(response => response.json())
+    .then(data => deleteTodoItem(data.id))
+    .catch(error => console.log(error));
   }
 
     return (
@@ -25,7 +36,8 @@ const TodoItem = ({ id, todoText, todoDate }) => {
           </div>
           <div className="col-2">
             {/* <Button btnType="danger" btnText="Delete" handler={deleteHandler}/> */}
-            <Button btnType="danger" btnText="Delete" handler={() => deleteTodoItem(id, todoText)}/>
+            {/* <Button btnType="danger" btnText="Delete" handler={() => deleteTodoItem(id)}/> */}
+            <Button btnType="danger" btnText="Delete" handler={deleteHandler}/>
           </div>
         </div>
       </div>
