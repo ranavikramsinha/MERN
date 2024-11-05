@@ -20,7 +20,7 @@ const TodoItem = ({ id, todoText, todoDate }) => {
               <div className="todo-text">{todoText}</div>
           </div>
           {/* <div className="col-5 "> */}
-          <div className="col-5">
+          <div className="col-5 d-flex justify-content-center align-items-center">
               <div className="todo-text">{todoDate}</div>
           </div>
           <div className="col-2">
