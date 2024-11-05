@@ -31,7 +31,7 @@ const LoadItems = () => {
       .catch((error) => console.error("Failed to load items:", error))
       .finally(() => setIsLoading(false));
 
-    console.log("Load items clicked");
+    console.log("Load items");
   }, []);
 
   // const loadTodoItemsHandler = () => {
