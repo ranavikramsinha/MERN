@@ -38,10 +38,20 @@ const requestHandler = (request, response) => {
     request.on('end', () => {
         console.log(buffer.length);
         const body = Buffer.concat(buffer).toString();
-        console.log(body);
+        // console.log(body);
+
+        const urlParams = new URLSearchParams(body);
+        const bodyJson = {};
+        for(const [key, value] of urlParams.entries()){
+          bodyJson[key] = value;
+        }
+        // console.log(bodyJson);
+        // console.log(Object.keys(bodyJson).length);
+
+        fs.writeFileSync('buy.txt', JSON.stringify(bodyJson));
     })
 
-    fs.writeFileSync('buy.txt', 'Myntra App');
+    // fs.writeFileSync('buy.txt', 'Myntra App');
     response.statusCode = 302;
     response.setHeader('Location', '/products');
     console.log("Sending Response");

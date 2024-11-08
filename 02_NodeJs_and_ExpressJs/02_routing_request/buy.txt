@@ -1,1 +1,1 @@
-Myntra App
+{"product-search":"jeans","budget":"1099"}
