@@ -1,9 +1,8 @@
 const http = require("http");
-
-console.log("Hi there!");
+const fs = require("fs");
 
 const requestHandler = (request, response) => {
-  console.log("Request received", request.url, request.method, request.headers);
+  console.log("Request received", request.url, request.method);
 
   response.setHeader("Content-Type", "text/html");
 
@@ -27,7 +26,13 @@ const requestHandler = (request, response) => {
         </body>
         </html>`
     );
-  } else if (request.url === "/products") {
+  } else if (request.url.toLowerCase() === "/buy-product") {
+    console.log("Form Data Received");
+    fs.writeFileSync('buy.txt', 'Myntra App');
+    response.statusCode = 302;
+    response.setHeader('Location', '/products');
+
+  } else if (request.url.toLowerCase() === "/products") {
     response.write(
       `<!DOCTYPE html>
         <html lang="en"><head>
@@ -39,6 +44,7 @@ const requestHandler = (request, response) => {
         </html>`
     );
   } else {
+    response.statusCode = 404;
     response.write(
       `<!DOCTYPE html>
         <html lang="en"><head>
