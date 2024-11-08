@@ -5,7 +5,7 @@ console.log("Hi there!");
 const requestHandler = (request, response) => {
     // console.log("Request received", request.url, request.method, request.headers);
 
-    // response.setHeader('Content-Type', 'text/html');
+    response.setHeader('Content-Type', 'text/html');
     // response.write('<!DOCTYPE html>')
     // response.write('<html lang="en">');
     // response.write('<head><title>My First Page</title></head>');
