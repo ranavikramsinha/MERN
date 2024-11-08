@@ -1,5 +1,5 @@
 import { createContext, useReducer, useState } from "react";
-import InitialTodoItems from "./initialTodoItems";
+import InitialTodoItems from "./InitialTodoItems";
 import TodoItemsReducer from "./TodoItemsReducer";
 
 export const TodoItemsContext = createContext();
