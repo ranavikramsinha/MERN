@@ -28,9 +28,23 @@ const requestHandler = (request, response) => {
     );
   } else if (request.url.toLowerCase() === "/buy-product") {
     console.log("Form Data Received");
+    const buffer = [];
+    request.on('data', (chunk) => {
+        console.log(chunk);
+        // console.log(chunk.toString());
+        buffer.push(chunk);
+    })
+
+    request.on('end', () => {
+        console.log(buffer.length);
+        const body = Buffer.concat(buffer).toString();
+        console.log(body);
+    })
+
     fs.writeFileSync('buy.txt', 'Myntra App');
     response.statusCode = 302;
     response.setHeader('Location', '/products');
+    console.log("Sending Response");
 
   } else if (request.url.toLowerCase() === "/products") {
     response.write(
