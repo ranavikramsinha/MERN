@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const {URLSearchParams} = require("url");
 
 const requestHandler = (request, response) => {
   console.log("Request received", request.url, request.method);
@@ -45,8 +46,8 @@ const requestHandler = (request, response) => {
         for(const [key, value] of urlParams.entries()){
           bodyJson[key] = value;
         }
-        // console.log(bodyJson);
-        // console.log(Object.keys(bodyJson).length);
+        console.log(bodyJson);
+        console.log(Object.keys(bodyJson).length);
 
         fs.writeFileSync('buy.txt', JSON.stringify(bodyJson));
     })
