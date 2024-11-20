@@ -3,9 +3,9 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 
 //* local module
-const hostRouter = require('./hostRouter');
-const storeRouter = require('./storeRouter');
-const errorRouter = require('./errorRouter');
+const hostRouter = require('./routers/hostRouter');
+const storeRouter = require('./routers/storeRouter');
+const errorRouter = require('./routers/errorRouter');
 
 const app = express();
 
