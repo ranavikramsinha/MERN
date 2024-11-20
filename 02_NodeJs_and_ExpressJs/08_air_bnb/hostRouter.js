@@ -13,7 +13,7 @@ hostRouter.get("/add-home", (req, res, next) => {
           </head>
           <body style="background-color: #222222; color: #ffffff;">
             <h1>Add Your Home</h1>
-            <form action="/add-home" method="post">
+            <form action="/host/add-home" method="post">
               <input
                 type="text"
                 name="houseName"

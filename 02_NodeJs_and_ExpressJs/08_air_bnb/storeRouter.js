@@ -13,7 +13,7 @@ storeRouter.get("/", (req, res, next) => {
       </head>
       <body style="background-color: #222222; color: #ffffff;">
           <h1>Welcome to Air Bnb</h1>
-          <a href="/add-home">Add Your Home</a>
+          <a href="/host/add-home">Add Your Home</a>
       </body>
       </html>
       `
