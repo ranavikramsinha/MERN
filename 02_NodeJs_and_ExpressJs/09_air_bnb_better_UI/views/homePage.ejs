@@ -1,35 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/output.css">
-    <title>Airbnb | Welcome</title>
+<%- include("partials/head") %>
 </head>
 <body class="bg-white dark:bg-zinc-900 text-black dark:text-white min-h-screen flex items-center justify-center">
-    <!-- Container for centered content -->
+
     <div class="text-center space-y-6 p-6 max-w-md rounded-lg bg-zinc-100 dark:bg-zinc-800 shadow-lg">
-        <!-- Heading -->
-        <h1 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Welcome to <span class="text-sky-500">Airbnb</span>
-        </h1>
+
+
+        <%- include("partials/heading") %>
         
-        <!-- Description -->
         <p class="text-lg text-gray-600 dark:text-gray-300">
             Discover your perfect stay or host your home with ease.
         </p>
         
-        <!-- Add Your Home Button -->
         <a href="/host/add-home" 
             class="block w-full text-center text-lg font-semibold text-white bg-sky-500 hover:bg-sky-600 hover:underline py-3 px-5 rounded-lg shadow-lg transition">
             Add Your Home
         </a>
 
-        <!-- Explore More Link -->
         <a href="/explore" 
             class="block text-sky-500 text-sm font-medium hover:underline mt-3">
             Explore Available Homes
         </a>
+
+        <% homes.forEach(home => { %> 
+            <div> <%= home.houseName %> </div>
+        <% }); %>
     </div>
 </body>
 </html>

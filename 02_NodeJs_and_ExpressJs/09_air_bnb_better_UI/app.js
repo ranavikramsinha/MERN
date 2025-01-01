@@ -4,12 +4,15 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 
 //* local module
-const hostRouter = require('./routers/hostRouter');
+const { hostRouter } = require('./routers/hostRouter');
 const storeRouter = require('./routers/storeRouter');
 const errorRouter = require('./routers/errorRouter');
 const rootDir = require("./util/pathUtil");
 
 const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", "views");
 
 app.use(express.static(path.join(rootDir, "public")));
 
