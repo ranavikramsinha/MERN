@@ -1,0 +1,34 @@
+<%- include("partials/head") %>
+</head>
+<body class="bg-white dark:bg-zinc-900 text-black dark:text-white min-h-screen flex items-center justify-center">
+    <!-- Main Container -->
+    <div class="text-center space-y-6 p-6 max-w-md rounded-lg bg-zinc-100 dark:bg-zinc-800 shadow-lg">
+        <%- include("partials/heading") %>
+        
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+            Discover your perfect stay or host your home with ease.
+        </p>
+        
+        <a href="/host/add-home" 
+            class="block w-full text-center text-lg font-semibold text-white bg-sky-500 hover:bg-sky-600 hover:underline py-3 px-5 rounded-lg shadow-lg transition">
+            Add Your Home
+        </a>
+
+        <a href="/explore" 
+            class="block text-sky-500 text-sm font-medium hover:underline mt-3">
+            Explore Available Homes
+        </a>
+
+        <!-- Homes Listing -->
+        <div class="space-y-4 mt-8">
+            <% homes.forEach(home => { %>
+                <div class="bg-white dark:bg-zinc-700 p-4 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        <%= home.houseName %>
+                    </h3>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
