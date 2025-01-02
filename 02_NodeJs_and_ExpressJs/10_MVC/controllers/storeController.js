@@ -1,7 +1,7 @@
-const { registerHomes } = require("./hostController");
+const Home = require("./../models/home");
 
 exports.getHomePage = (req, res, next) => {
-    console.log(registerHomes);
-    // res.sendFile(path.join(rootDir, "views", "homePage.html"));
-    res.render("homePage", { homes: registerHomes, pageTitle: "Airbnb"});
+    Home.fetchAll(registerHomes => {
+        res.render("homePage", { homes: registerHomes, pageTitle: "Airbnb"});
+    })
   };
