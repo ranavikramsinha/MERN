@@ -1,0 +1,40 @@
+<form action="/favourites" method="post" class="absolute top-1 right-1">
+    <input type="hidden" name="id" value="<%= home.id %>">
+    <button 
+    class="absolute top-4 right-4 p-2 bg-white dark:bg-zinc-800 rounded-full shadow-lg hover:scale-110 transition-transform duration-200 group"
+    onclick="toggleFavorite('<%= home.id %>')"
+    aria-label="Add to favorites"
+>
+    <svg 
+        class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-red-500 transition-colors duration-200" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+    >
+        <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+        />
+    </svg>
+</button>
+</form>
+
+<script>
+    function toggleFavorite(homeId) {
+        const button = event.currentTarget;
+        const svg = button.querySelector('svg');
+        
+        // Toggle filled/unfilled heart
+        if (svg.getAttribute('fill') === 'none') {
+            svg.setAttribute('fill', 'currentColor');
+            svg.classList.add('text-red-500');
+            svg.classList.remove('text-gray-500', 'dark:text-gray-400');
+        } else {
+            svg.setAttribute('fill', 'none');
+            svg.classList.remove('text-red-500');
+            svg.classList.add('text-gray-500', 'dark:text-gray-400');
+        }
+    }
+</script>
